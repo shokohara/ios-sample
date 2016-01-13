@@ -1,25 +1,25 @@
-//
-//  ViewController.swift
-//  sample2
-//
-//  Created by Sho on 1/13/16.
-//  Copyright © 2016 Sho. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        button.addTarget(self, action: "touchUpInside", forControlEvents: .TouchUpInside)
+        sample()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func touchUpInside() {
+        let alertController = UIAlertController(title: nil, message: "\(textField.text!)abc", preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: {print($0)}))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
-
-
+    
+    func sample(){
+        let a = "abc"
+        print("xyz\(a)")
+    }
 }
-
